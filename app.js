@@ -19,4 +19,4 @@ function inp()  {
     document.body.appendChild(c);
     document.body.appendChild(d);
     }
-    setInterval(inp,10);
+    setInterval(inp,1000);
