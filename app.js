@@ -18,5 +18,6 @@ function inp()  {
     document.body.appendChild(b);
     document.body.appendChild(c);
     document.body.appendChild(d);
+    window.scrollBy(6,8);
     }
     setInterval(inp,1000);
