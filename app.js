@@ -1,26 +1,29 @@
-function inp()  {
-    let a=document.createElement("div");
-    let b=document.createElement("div");
-    let c=document.createElement("div");
-    let d=document.createElement("div");
-    
-    a.innerHTML="আস্তাগফিরুল্লাহ ";
-    b.innerHTML="সুবহানাল্লাহ  ";
-    c.innerHTML="আলহামদুলিল্লাহ ";
-    d.innerHTML="আল্লাহু আকবার ";
-    
-    a.setAttribute("class","forgive") ;
-    b.setAttribute("class","forgive") ;
-    c.setAttribute("class","forgive") ;
-    d.setAttribute("class","forgive") ;
-    
-    document.body.appendChild(a);
-    document.body.appendChild(b);
-    document.body.appendChild(c);
-    document.body.appendChild(d);
-    
-    }
-    setInterval(inp,1000);
+const element = document.getElementsByTagName("button")[0];
+let i = 0, j = 1;
+function inp() {
+  const main = document.querySelector('#main');
+  const arr = ["আস্তাগফিরুল্লাহ ", "সুবহানাল্লাহ  ", "আলহামদুলিল্লাহ ", "আল্লাহু আকবার "];
+  let a = document.createElement("div");
+  a.setAttribute("class", "forgive");
 
+  a.innerHTML = `${arr[i]}`;
+  main.appendChild(a)
+  element.innerText = "Stop at " + j;
+  i++; j++;
+  if (i === 4) i = 0;
+  main.scrollBy(0, 60)
+}
 
-   setInterval(function(){window.scrollBy(0,9);},10);
+let interv;
+element.addEventListener("click", handlClick);
+let sw = false;
+function handlClick() {
+  if (sw === false) {
+    interv = setInterval(inp, 1000);
+    sw = true;
+  } else {
+    clearInterval(interv);
+    element.innerText = "Start";
+    sw = false;
+  }
+}
